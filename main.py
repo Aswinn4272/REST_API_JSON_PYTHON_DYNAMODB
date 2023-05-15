@@ -9,12 +9,12 @@ response = requests.get("<api request url>")
 #setting up the connection for dynamodb database using boto3
 db = boto3.resource('dynamodb')
 #for the table
-dbTable = db.Table('airlines')
+dbTable = db.Table('<table name>')
 
 #create an empti list to store the needed values from the json data
 ids = []
 
-#iterate through each dictionary to collect the data
+#iterate through each dictionary to collect the data id=f any field is missing it will give the value "UNKNOWN" inthat field
 for x in response.json():
     if 'id' in x:
         data={
